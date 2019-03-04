@@ -1,0 +1,5 @@
+dependencies:
+ - name: 3d-force-graph
+   version: 1.45.3
+   src: htmlwidgets/lib/3d-force-graph
+   script: 3d-force-graph.min.js

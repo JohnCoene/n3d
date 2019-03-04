@@ -1,0 +1,15 @@
+Package: n3d
+Title: 3D Force Networks
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "John",
+           family = "Coene",
+           role = c("aut", "cre"),
+           email = "jcoenep@gmail.com")
+Description: 3D Force Networks.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    htmlwidgets
+RoxygenNote: 6.1.1
