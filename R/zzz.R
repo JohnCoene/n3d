@@ -1,0 +1,32 @@
+.onLoad <- function(libname, pkgname) {
+  options(
+    n3d_nodeId = "id",
+    n3d_nodeVal = "value",
+    n3d_nodeLabel = "name",
+    n3d_nodeColor = "color",
+    n3d_linkSource = "source",
+    n3d_linkTarget = "target",
+    n3d_nodeRelSize = 4,
+    n3d_nodeOpacity = .75,
+    n3d_nodeResolution = 8,
+    n3d_backgroundColor = "#000011",
+    n3d_showNavInfo = FALSE,
+    n3d_linkLabel = "name",
+    n3d_linkVisibility = TRUE,
+    n3d_linkColor = "color",
+    n3d_linkOpacity = .2,
+    n3d_linkWidth = 0,
+    n3d_linkResolution = 6,
+    n3d_linkCurvature = 0,
+    n3d_linkCurveRotation = 0,
+    n3d_linkDirectionalArrowLength = 0,
+    n3d_linkDirectionalArrowColor = "color",
+    n3d_linkDirectionalArrowRelPos = .5,
+    n3d_linkDirectionalArrowResolution = 8,
+    n3d_linkDirectionalParticles = 0,
+    n3d_linkDirectionalParticleSpeed = .01,
+    n3d_linkDirectionalParticleWidth = .5,
+    n3d_linkDirectionalParticleColor = "color",
+    n3d_linkDirectionalParticleResolution = 4
+  )
+}

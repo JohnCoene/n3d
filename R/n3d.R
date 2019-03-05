@@ -3,9 +3,10 @@
 #' <Add Description>
 #'
 #' @import htmlwidgets
+#' @import dplyr
 #'
 #' @export
-n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = NULL, height = NULL, elementId = NULL) {
+n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = "100%", height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
@@ -18,6 +19,14 @@ n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = NU
       links = list()
     )
   )
+
+  # get n3d options
+  opts <- options()
+  n3d_opts <- opts[grepl("n3d", names(opts))]
+  names(n3d_opts) <- gsub("n3d_", "", names(n3d_opts))
+
+  # append
+  x <- append(x, n3d_opts)
 
   # create widget
   htmlwidgets::createWidget(

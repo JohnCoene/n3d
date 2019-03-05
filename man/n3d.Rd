@@ -4,7 +4,8 @@
 \alias{n3d}
 \title{<Add Title>}
 \usage{
-n3d(message, width = NULL, height = NULL, elementId = NULL)
+n3d(control = "trackball", renderer = list(aplha = TRUE),
+  width = "100\%", height = NULL, elementId = NULL)
 }
 \description{
 <Add Description>
