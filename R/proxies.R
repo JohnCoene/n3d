@@ -33,7 +33,7 @@
 #' 
 #' if(interactive()) shinyApp(ui, server)
 #'
-#' @name graph-proxy
+#' @name update-proxy
 #' @export
 n_nodes_p <- function(proxy, nodes, ...) {
   .text_proxy(proxy)
@@ -42,7 +42,7 @@ n_nodes_p <- function(proxy, nodes, ...) {
 	return(proxy)
 }
 
-#' @rdname graph-proxy
+#' @rdname update-proxy
 #' @export
 n_edges_p <- function(proxy, edges, ...) {
   .text_proxy(proxy)
@@ -51,7 +51,7 @@ n_edges_p <- function(proxy, edges, ...) {
 	return(proxy)
 }
 
-#' @rdname graph-proxy
+#' @rdname update-proxy
 #' @export
 n_update_data_p <- function(proxy) {
   .text_proxy(proxy)
@@ -66,3 +66,30 @@ n_update_data_p <- function(proxy) {
 	proxy$session$sendCustomMessage("n_update_data_p", proxy$message)
 	return(proxy)
 }
+
+#' @rdname update-proxy
+#' @export
+n_append_data_p <- function(proxy) {
+  .text_proxy(proxy)
+  proxy$message$id <- proxy$id
+
+  if(!length(proxy$message$data$links))
+    proxy$message$data$links <- list()
+
+  if(!length(proxy$message$data$nodes))
+    proxy$message$data$nodes <- list()
+
+	proxy$session$sendCustomMessage("n_append_data_p", proxy$message)
+	return(proxy)
+}
+
+#' Update nodes with a delay
+#'
+#' Update nodes and edges without redrawing the whole network and with a delay.
+#'
+#' @param proxy A proxy as returned by \code{\link{n3dProxy}}.
+#' @inheritParams graph
+#' @param delay Bare name of column containing delay in milliseconds before 
+#' the row must be added to the network.
+#' 
+#' @name delay-proxy

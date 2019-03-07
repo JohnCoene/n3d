@@ -81,6 +81,20 @@ if(HTMLWidgets.shinyMode){
         g.graphData(message.data)
 			}
 		}
+  );
+  
+	Shiny.addCustomMessageHandler('n_append_data_p',
+		function (message) {
+      var g = get_n3d(message.id);
+			if (typeof g != 'undefined') {
+        console.log(g.graphData());
+        var { nodes, links } = g.graphData(); // Get data
+        g.graphData({
+          nodes: [...nodes, message.data.nodes ],
+          links: [...links, message.data.links ]
+        });
+			}
+		}
 	);
 
 }
