@@ -1,17 +1,22 @@
-#' <Add Title>
+#' Initialise
 #'
-#' <Add Description>
+#' Initialise an \code{n3d} network.
+#'
+#' @param control Type of control to use to control the camera, one of \code{trackball}, \code{orbit} or \code{fly}.
+#' @param renderer Configuration parameters to pass to the \href{https://threejs.org/docs/#api/en/renderers/WebGLRenderer}{ThreeJS WebGLRenderer constructor}.
+#' @param width,height Width and height of container.
+#' @param elementId Id of DOM container.
 #'
 #' @import htmlwidgets
 #' @import dplyr
 #'
 #' @export
-n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = "100%", height = NULL, elementId = NULL) {
+n3d <- function(control = c("trackball", "orbit", "fly"), renderer = list(aplha = TRUE), width = "100%", height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
     config = list(
-      controlType = control,
+      controlType = match.arg(control),
       rendererConfig = renderer
     ),
     data = list(
@@ -35,7 +40,11 @@ n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = "1
     width = width,
     height = height,
     package = 'n3d',
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      padding = 0,
+      browser.fill = TRUE
+    )
   )
 }
 
@@ -52,6 +61,8 @@ n3d <- function(control = "trackball", renderer = list(aplha = TRUE), width = "1
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
+#' @param id Id of visualisation.
+#' @param session Your shiny session.
 #'
 #' @name n3d-shiny
 #'
@@ -65,4 +76,14 @@ n3dOutput <- function(outputId, width = '100%', height = '400px'){
 renderN3d <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, n3dOutput, env, quoted = TRUE)
+}
+
+#' @rdname n3d-shiny
+#' @export
+n3dProxy <- function(id, session = shiny::getDefaultReactiveDomain()){
+  
+  proxy <- list(id = id, session = session)
+  class(proxy) <- "n3dProxy"
+  
+  return(proxy)
 }

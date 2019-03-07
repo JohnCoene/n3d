@@ -1,2 +1,3 @@
+^data-raw$
 ^LICENSE\.md$
 test.R

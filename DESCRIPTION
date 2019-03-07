@@ -10,8 +10,10 @@ Description: 3D Force Networks.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 2.10)
 Imports:
     dplyr,
+    shiny,
     htmlwidgets,
     magrittr
 RoxygenNote: 6.1.1

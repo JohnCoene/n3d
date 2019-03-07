@@ -49,10 +49,38 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
 
-        // TODO: code to re-render the widget with a new size
+      },
 
+      getGraph: function(){
+        return(graph);
       }
 
     };
   }
 });
+
+function get_n3d(id) {
+
+	var htmlWidgetsObj = HTMLWidgets.find("#" + id); // find object
+
+	var s; // define
+
+	if (typeof htmlWidgetsObj != 'undefined') { // get chart if defined
+		s = htmlWidgetsObj.getGraph();
+	}
+
+	return (s);
+}
+
+if(HTMLWidgets.shinyMode){
+
+	Shiny.addCustomMessageHandler('n_update_data_p',
+		function (message) {
+			var g = get_n3d(message.id);
+			if (typeof g != 'undefined') {
+        g.graphData(message.data)
+			}
+		}
+	);
+
+}

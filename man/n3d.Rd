@@ -2,11 +2,20 @@
 % Please edit documentation in R/n3d.R
 \name{n3d}
 \alias{n3d}
-\title{<Add Title>}
+\title{Initialise}
 \usage{
-n3d(control = "trackball", renderer = list(aplha = TRUE),
-  width = "100\%", height = NULL, elementId = NULL)
+n3d(control = c("trackball", "orbit", "fly"), renderer = list(aplha =
+  TRUE), width = "100\%", height = NULL, elementId = NULL)
+}
+\arguments{
+\item{control}{Type of control to use to control the camera, one of \code{trackball}, \code{orbit} or \code{fly}.}
+
+\item{renderer}{Configuration parameters to pass to the \href{https://threejs.org/docs/#api/en/renderers/WebGLRenderer}{ThreeJS WebGLRenderer constructor}.}
+
+\item{width, height}{Width and height of container.}
+
+\item{elementId}{Id of DOM container.}
 }
 \description{
-<Add Description>
+Initialise an \code{n3d} network.
 }
