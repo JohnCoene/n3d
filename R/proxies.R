@@ -67,8 +67,6 @@ n_update_data_p <- function(proxy) {
 	return(proxy)
 }
 
-#' @rdname update-proxy
-#' @export
 n_append_data_p <- function(proxy) {
   .text_proxy(proxy)
   proxy$message$id <- proxy$id
@@ -83,13 +81,3 @@ n_append_data_p <- function(proxy) {
 	return(proxy)
 }
 
-#' Update nodes with a delay
-#'
-#' Update nodes and edges without redrawing the whole network and with a delay.
-#'
-#' @param proxy A proxy as returned by \code{\link{n3dProxy}}.
-#' @inheritParams graph
-#' @param delay Bare name of column containing delay in milliseconds before 
-#' the row must be added to the network.
-#' 
-#' @name delay-proxy

@@ -87,12 +87,12 @@ if(HTMLWidgets.shinyMode){
 		function (message) {
       var g = get_n3d(message.id);
 			if (typeof g != 'undefined') {
-        console.log(g.graphData());
         var { nodes, links } = g.graphData(); // Get data
         g.graphData({
           nodes: [...nodes, message.data.nodes ],
           links: [...links, message.data.links ]
-        });
+				});
+				console.log(g.graphData());
 			}
 		}
 	);
