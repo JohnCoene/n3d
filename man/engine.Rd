@@ -2,16 +2,21 @@
 % Please edit documentation in R/force.R
 \name{engine}
 \alias{engine}
-\alias{n_force_engine}
-\title{Force Engineß}
+\alias{n_force}
+\alias{n_force_dims}
+\title{Force Engine}
 \usage{
-n_force_engine(n3d, engine = c("d3", "ngraph"))
+n_force(n3d, engine = c("d3", "ngraph"))
+
+n_force_dims(n3d, dims = c(3, 2, 1))
 }
 \arguments{
 \item{n3d}{An object of class \code{n3d} as returned by \code{\link{n3d}}.}
 
 \item{engine}{Getter/setter for which force-simulation engine to use 
 (\href{https://github.com/vasturiano/d3-force-3d}{d3} or \href{https://github.com/anvaka/ngraph.forcelayout}{ngraph}).}
+
+\item{dims}{Number of dimensions.}
 }
 \description{
 Define the force engine to use.

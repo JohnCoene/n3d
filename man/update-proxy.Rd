@@ -5,7 +5,6 @@
 \alias{n_nodes_p}
 \alias{n_edges_p}
 \alias{n_update_data_p}
-\alias{n_append_data_p}
 \title{Update}
 \usage{
 n_nodes_p(proxy, nodes, ...)
@@ -13,8 +12,6 @@ n_nodes_p(proxy, nodes, ...)
 n_edges_p(proxy, edges, ...)
 
 n_update_data_p(proxy)
-
-n_append_data_p(proxy)
 }
 \arguments{
 \item{proxy}{A proxy as returned by \code{\link{n3dProxy}}.}
