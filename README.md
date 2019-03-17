@@ -1,3 +1,5 @@
+[![Travis build status](https://travis-ci.org/JohnCoene/n3d.svg?branch=master)](https://travis-ci.org/JohnCoene/n3d)
+
 # n3d
 
 3D networks in R.
