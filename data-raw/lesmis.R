@@ -28,7 +28,7 @@ graph <- tbl_graph(
 		components = group_components(type = "weak"),
 		eigen = centrality_eigen(),
 		group = group_walktrap(),
-		color = scales::col_numeric(COLORS, domain = NULL)(out_degree),
+		color = scales::col_factor(COLORS, domain = NULL)(group),
 		name = label,
 		id = name
 	) %>% 

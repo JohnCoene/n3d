@@ -19,3 +19,4 @@ n3d() %>%
 	n_edges(lesmis_edges, source, target)
 ```
 
+![](n3d.png)
